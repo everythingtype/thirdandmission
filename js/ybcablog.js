@@ -1,6 +1,38 @@
 (function($) {
 
+	function doListView() {
+		$('#viewgrid').removeClass('selected');
+		$('#viewlist').addClass('selected');
+		
+		$('.masonry').addClass('listview');
+
+		$('.masonry').packery({
+	        itemSelector: '.brick'
+	    });
+
+		$.cookie('listview', true, { path: '/' });
+	}
+
+	function doGridView() {
+		$('#viewlist').removeClass('selected');
+		$('#viewgrid').addClass('selected');
+
+		$('.masonry').removeClass('listview');
+
+		$('.masonry').packery({
+	        itemSelector: '.brick'
+	    });
+
+		$.removeCookie('listview', { path: '/' });
+	}
+
 	function initialize() {
+
+		var listview = $.cookie('listview');
+
+		if ( listview ) {
+			doListView();
+		}
 
 		$('body').addClass('js');
 
@@ -11,7 +43,6 @@
 	$(document).ready( function() {
 
 		initialize();
-
 
 		$('.masonry').packery({
 	        itemSelector: '.brick'
@@ -26,6 +57,14 @@
 		$('.search label').live('click', function() {
 			$(this).hide();
 			$('.searchinput').show();
+		});
+
+		$('#viewgrid').live('click', function() {
+			doGridView();
+		});
+
+		$('#viewlist').live('click', function() {
+			doListView();
 		});
 
 

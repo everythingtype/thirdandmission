@@ -10,9 +10,9 @@ get_header(); ?>
 			</div>
 
 			<?php while (have_posts()) : the_post(); ?>
-				<div id="content" class="page">
+				<div class="single page"><div class="content">
 					<?php the_content(); ?>
-				</div>
+				</div></div>
 			<?php endwhile; ?>
 
 		<?php else : ?>

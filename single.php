@@ -37,31 +37,30 @@ get_header(); ?>
 			<?php endforeach; ?>
 		<?php endif; ?>
 
-		<div class="metablock">
+		<div class="single">
+
+			<div class="titleblock">
+
+				<h3 <?php if ( get_field('subtitle') ) echo 'class="withsubtitle"' ?> ><?php the_title(); ?></h3>
+
+				<?php if ( get_field('subtitle') ) : ?>
+					<p class="subtitle"><?php the_field('subtitle'); ?></p>
+				<?php endif; ?>
+			
+			</div>
+
 			<?php get_template_part('parts/metas'); ?>
 
-			<?php $comments_count = wp_count_comments( get_the_ID() ); if ( $comments_count->approved > 0 ) : ?>
-				<p class="commentcount"><?php echo $comments_count->approved; ?></p>
-			<?php endif; ?>
+			<div class="content">
 
-			<?php the_tags('<ul class="tags"><li>','</li><li>','</li></ul>'); ?>
-			<?php exclude_post_categories('recent') ?>
+				<?php if ( has_post_thumbnail() ) : ?>
+					<p class="thumbnail"><?php the_ybca_thumbnail(true); ?></p> 
+				<?php endif; ?>
 
-<?php if ( lessThanOneTwentyDays( get_post_time('U') ) ) : ?>
- 	<ul><li><a href="/recent">Recent</a></li></ul>
-<?php endif; ?>
+				<?php the_content(); ?>
 
-		</div>
+			</div>
 
-
-		<div id="content" class="single">
-			<h3 <?php if ( get_field('subtitle') ) echo 'class="withsubtitle"' ?> ><?php the_title(); ?></h3>
-
-			<?php if ( get_field('subtitle') ) : ?>
-				<p class="subtitle"><?php the_field('subtitle'); ?></p>
-			<?php endif; ?>
-
-			<?php the_content(); ?>
 		</div>
 
 

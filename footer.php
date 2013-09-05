@@ -30,7 +30,7 @@
 	<div class="social">
 		<ul>
 			<li><a href="https://twitter.com/ybca"><?php include( TEMPLATEPATH . "/images/twitter.svg"); ?></a></li>
-			<li><a href="mailto:"><?php include( TEMPLATEPATH . "/images/email.svg"); ?></a></li>
+			<li><a href="https://tickets.ybca.org/account/login.aspx#fragment-4"><?php include( TEMPLATEPATH . "/images/email.svg"); ?></a></li>
 			<li><a href="https://www.facebook.com/YBCA"><?php include( TEMPLATEPATH . "/images/facebook.svg"); ?></a></li>
 		</ul>
 	</div>

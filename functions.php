@@ -18,11 +18,15 @@ function queue_scripts() {
 	wp_register_script('packeryjs',$packeryjs);
 	wp_enqueue_script( 'packeryjs',array('jquery'));
 
+	// Cookie
+	$cookiejs = get_template_directory_uri() . '/js/jquery.cookie.js';
+	wp_register_script('cookiejs',$cookiejs);
+	wp_enqueue_script( 'cookiejs',array('jquery'));
+
 	// Theme
 	$themejs = get_template_directory_uri() . '/js/ybcablog.js';
 	wp_register_script('themejs',$themejs);
-	wp_enqueue_script( 'themejs',array('screenfull','jquery'));
-	
+	wp_enqueue_script( 'themejs',array('packeryjs','cookiejs','jquery'));
 
 	// Styles
     $defaultstyle = get_bloginfo('stylesheet_url'); 
@@ -182,16 +186,16 @@ function remove_thumbnail_dimensions( $html ) {
 }
 
 
-function the_ybca_thumbnail() {
+function the_ybca_thumbnail($showcaption = false) {
 
 	global $post;
 
-	echo get_ybca_thumbnail($post->ID);
+	echo get_ybca_thumbnail($post->ID, $showcaption);
 	
 }
 
 
-function get_ybca_thumbnail($post_id) {
+function get_ybca_thumbnail($post_id, $showcaption) {
 
 	$thumbnail_id = get_post_thumbnail_id($post_id);
 	$images = get_posts(array('p' => $thumbnail_id, 'post_type' => 'attachment'));
@@ -211,7 +215,7 @@ function get_ybca_thumbnail($post_id) {
 			
 			$output .= '<img src="' . $img_url . '" alt="' . $img_alt . '" />';
 
-			if ($img_caption) : 
+			if ( $showcaption && $img_caption) : 
 				$output .= '<div class="wp-caption">' . wpautop($img_caption) . '</div>'; 
 			endif; 
 			
@@ -221,6 +225,7 @@ function get_ybca_thumbnail($post_id) {
 	return $output;
 
 }
+
 
 
 

@@ -42,26 +42,37 @@
 
 		<div class="header">
 
-		<p class="tagline">An arts and culture journal by Y<span>erba </span>B<span>uena </span>C<span>enter for the </span>A<span>rts</span></p>
+			<p class="tagline">An arts and culture journal by Y<span>erba </span>B<span>uena </span>C<span>enter for the </span>A<span>rts</span></p>
 
-		<h1 class="thirdandmission"><a href="<?php bloginfo('url'); ?>"><span class="box">3rd</span> <span>&amp;</span> <span class="box">Mission</span></a></h1>
-		
-		<div class="navcontainer">
+			<div class="viewtoggle">
+				<ul>
+					<li id="viewgrid" class="selected" title="View as grid"><?php include( TEMPLATEPATH . "/images/gridview.svg"); ?><span> View as grid</span></li>
+					<li id="viewlist" title="View as list"><?php include( TEMPLATEPATH . "/images/listview.svg"); ?><span> View as list</span></li>
+				</ul>
+			</div>
 
-			<ul class="nav">
-			<li <?php if ( is_category_or_subcategory('journal') ) echo 'class="selected"' ?>><span>+</span> <a href="<?php bloginfo('url'); ?>/journal">Journal</a></li>
-			<li <?php if ( is_category_or_subcategory('events') ) echo 'class="selected"' ?>><span>+</span> <a href="<?php bloginfo('url'); ?>/events">Events</a></li>
-			<li <?php if ( is_tag('text') ) echo 'class="selected"' ?>><span>+</span> <a href="<?php bloginfo('url'); ?>/text">Texts</a></li>
-			<li <?php if ( is_tag('art') ) echo 'class="selected"' ?>><span>+</span> <a href="<?php bloginfo('url'); ?>/art">Art</a></li>
-			<li <?php if ( is_tag('video') ) echo 'class="selected"' ?>><span>+</span> <a href="<?php bloginfo('url'); ?>/video">Video</a></li>
-			<li <?php if ( is_category('recent') ) echo 'class="selected"' ?>><span>+</span> <a href="<?php bloginfo('url'); ?>/recent">Recent</a></li>
-			<li <?php if ( is_page('archive') || is_archive() && !is_category_or_subcategory('events') && !is_category_or_subcategory('journal') && !is_category('recent') && !is_tag() ) echo 'class="selected"' ?>><span>+</span> <a href="<?php bloginfo('url'); ?>/archive">Archive</a></li>
-			<li <?php if ( is_page('about') ) echo 'class="selected"' ?>><span>+</span> <a href="<?php bloginfo('url'); ?>/about">About</a></li>
-			</ul>
+			<div class="topmenu">
+
+				<h1 class="thirdandmission"><a href="<?php bloginfo('url'); ?>"><span class="box">3rd</span> <span>&amp;</span> <span class="box">Mission</span></a></h1>
 		
-			<div class="search"><span class="amp">+</span> <form method="get" action="<?php bloginfo('home'); ?>/"><label for="s"><span class="imagelabel"><?php include( TEMPLATEPATH . "/images/search.svg"); ?></span><span class="textlabel">Search</span></label><span class="searchinput"><input type="text" value="<?php echo wp_specialchars($s, 1); ?>" name="s" id="s" /><input class="icon" type="image" src="<?php echo get_stylesheet_directory_uri() ?>/images/search.svg" /></span></form></div>
+				<div class="navcontainer">
+
+					<ul class="nav">
+					<li <?php if ( is_category_or_subcategory('journal') ) echo 'class="selected"' ?>><span>+</span> <a href="<?php bloginfo('url'); ?>/journal">Journal</a></li>
+					<li <?php if ( is_category_or_subcategory('events') ) echo 'class="selected"' ?>><span>+</span> <a href="<?php bloginfo('url'); ?>/events">Events</a></li>
+					<li <?php if ( is_tag('text') ) echo 'class="selected"' ?>><span>+</span> <a href="<?php bloginfo('url'); ?>/text">Texts</a></li>
+					<li <?php if ( is_tag('art') ) echo 'class="selected"' ?>><span>+</span> <a href="<?php bloginfo('url'); ?>/art">Art</a></li>
+					<li <?php if ( is_tag('video') ) echo 'class="selected"' ?>><span>+</span> <a href="<?php bloginfo('url'); ?>/video">Video</a></li>
+					<li <?php if ( is_category('recent') ) echo 'class="selected"' ?>><span>+</span> <a href="<?php bloginfo('url'); ?>/recent">Recent</a></li>
+					<li <?php if ( is_page('archive') || is_archive() && !is_category_or_subcategory('events') && !is_category_or_subcategory('journal') && !is_category('recent') && !is_tag() ) echo 'class="selected"' ?>><span>+</span> <a href="<?php bloginfo('url'); ?>/archive">Archive</a></li>
+					<li <?php if ( is_page('about') ) echo 'class="selected"' ?>><span>+</span> <a href="<?php bloginfo('url'); ?>/about">About</a></li>
+					</ul>
 		
-		</div>
+					<div class="search"><span class="amp">+</span> <form method="get" action="<?php bloginfo('home'); ?>/"><label for="s"><span class="imagelabel"><?php include( TEMPLATEPATH . "/images/search.svg"); ?></span><span class="textlabel">Search</span></label><span class="searchinput"><input type="text" value="<?php echo wp_specialchars($s, 1); ?>" name="s" id="s" /><input class="icon" type="image" src="<?php echo get_stylesheet_directory_uri() ?>/images/search.svg" /></span></form></div>
+		
+				</div>
+		
+			</div>
 		
 		</div>
 		
