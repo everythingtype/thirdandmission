@@ -5,12 +5,13 @@
 <div class="footer">
 
 	<div class="brandbox">
-		<p class="thirdandmission"><a href="<?php bloginfo('url'); ?>"><span class="box">3rd</span> <span>&amp;</span> <span class="box">Mission</span></a></p>
 
 		<div class="ybcatagline">
-		<a href="http://ybca.org/" class="logo"><?php include( TEMPLATEPATH . "/images/ybca-small.svg"); ?></a>
+		<a href="http://ybca.org/"><?php include( TEMPLATEPATH . "/images/ybca-small.svg"); ?></a>
 		<p>An arts and culture journal by Yerba Buena Center for the Arts</p>
 		</div>
+
+		<p class="thirdandmission"><a href="<?php bloginfo('url'); ?>"><span class="box">3rd</span> <span>&amp;</span> <span class="box">Mission</span></a></p>
 
 	</div>
 

@@ -40,6 +40,8 @@
 	
 	<div class="layout">
 
+		<div class="logo"><a href="http://ybca.org/"><?php include( TEMPLATEPATH . "/images/ybca.svg"); ?></a></div>
+
 		<div class="header">
 
 			<p class="tagline">An arts and culture journal by Y<span>erba </span>B<span>uena </span>C<span>enter for the </span>A<span>rts</span></p>
@@ -50,6 +52,8 @@
 					<li id="viewlist" title="View as list"><?php include( TEMPLATEPATH . "/images/listview.svg"); ?><span> View as list</span></li>
 				</ul>
 			</div>
+
+			<p class="weather"><span>The weather</span> on 3rd and Mission</p>
 
 			<div class="topmenu">
 
