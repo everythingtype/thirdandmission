@@ -17,6 +17,7 @@
 		<div class="iteminner">
 
 		<?php if ( $comments_count->approved > 0 ) : ?>
+			<div class="whitecorner"></div>
 			<div class="corner <?php ybca_corner_color(); ?>"><p><?php echo $comments_count->approved; ?></p></div>
 		<?php endif; ?>
 

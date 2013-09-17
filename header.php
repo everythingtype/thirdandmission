@@ -53,7 +53,7 @@
 				</ul>
 			</div>
 
-			<p class="weather"><span>The weather</span> on 3rd and Mission</p>
+			<p class="weather"></p>
 
 			<div class="topmenu">
 
