@@ -1,6 +1,6 @@
 <!doctype html>  
 <!--[if lte IE 8]> <html class="legacy"> <![endif]-->
-<!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+<!--[if gt IE 8]> <html> <![endif]-->
 <!--[if !IE]><!--> <html> <!--<![endif]-->
 
 <head>
@@ -40,7 +40,7 @@
 	
 	<div class="layout">
 
-		<div class="logo"><a href="http://ybca.org/"><?php include( TEMPLATEPATH . "/images/ybca.svg"); ?></a></div>
+		<div class="logo"><a href="http://ybca.org/"><?php get_template_part('parts/ybca'); ?></a></div>
 
 		<div class="header">
 
@@ -71,8 +71,8 @@
 					<li <?php if ( is_page('archive') || is_archive() && !is_category_or_subcategory('events') && !is_category_or_subcategory('journal') && !is_category('recent') && !is_tag() ) echo 'class="selected"' ?>><span>+</span> <a href="<?php bloginfo('url'); ?>/archive">Archive</a></li>
 					<li <?php if ( is_page('about') ) echo 'class="selected"' ?>><span>+</span> <a href="<?php bloginfo('url'); ?>/about">About</a></li>
 					</ul>
-		
-					<div class="search"><span class="amp">+</span> <form method="get" action="<?php bloginfo('home'); ?>/"><label for="s"><span class="imagelabel"><?php include( TEMPLATEPATH . "/images/search.svg"); ?></span><span class="textlabel">Search</span></label><span class="searchinput"><input type="text" value="<?php echo wp_specialchars($s, 1); ?>" name="s" id="s" /><input class="icon" type="image" src="<?php echo get_stylesheet_directory_uri() ?>/images/search.svg" /></span></form></div>
+
+					<?php get_template_part('parts/search'); ?>
 		
 				</div>
 		

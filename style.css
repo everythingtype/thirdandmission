@@ -27,6 +27,8 @@ Theme Name: Third & Mission
 	     url('fonts/KievitSerif-Italic.woff') format('woff');
 	}
 
+
+
 /* Included SVGs */
 
 svg .ybcalogo { fill: #bfbfbf; }
@@ -50,13 +52,15 @@ body { font-family: "KievitSerif", Georgia, serif; background: #e5e5e5; margin: 
 a {text-decoration: none; color: #000; }
 a:hover {}
 
+a img { border: none; }
+
 img {max-width: 100%;}
 	
 .thirdandmission { font-family: "Interstate", sans-serif; font-weight: bold; font-size: 30px; line-height: 34px; text-transform: uppercase; overflow: hidden; margin: 0 0 .33em 0; }
 .thirdandmission span {border: 3px solid transparent; border-radius: .125em; padding: 0 .1em; display: block; float: left; }
 .thirdandmission span.box { border-color: #000;  padding: 0 .4em; }
 
-.layout {background: #fff; overflow: hidden; }
+.layout {background: #fff; overflow: hidden;  width: 100%; }
 
 /* Header*/
 
@@ -73,7 +77,7 @@ img {max-width: 100%;}
 .header .viewtoggle span { display: none; }
 
 .header .weather {  font-size: 10px; margin: .75em 3em 1em 0; text-transform: uppercase; float: right; display: none; width: 250px; text-align: right; }
-#weatherOverlay {display: none; }
+#weatherOverlay {display: none;  filter: none; /* IE9+ grdients */ }
 
 
 .header .topmenu {clear: both;}
@@ -102,6 +106,8 @@ img {max-width: 100%;}
 
 .search .icon { border: 3px solid #bfbfbf; border-left: none; border-top-right-radius: .125em; border-bottom-right-radius: .125em; padding: 2px 6px 3px 0; margin: 0 0 .33em 0; display: inline-block; background: #fff; line-height: 0;  font-size: 30px;}
 #s:focus + .icon {border-color: #000; }
+
+#s.iepadding {padding-bottom: 6px}
 	
 .main {overflow: hidden; padding: 1em 0 1em 1em; box-sizing: border-box; -moz-box-sizing: border-box; }
 
@@ -345,18 +351,25 @@ ul.archive a {display: block; line-height: 1.5em;  }
 	.listview .item { max-width: 44.5em;  }
 	.listview .iteminner {width: 34.5em; float: right; }
 
+	.listview .metablock {float: left; font-family: "Interstate", sans-serif; text-transform: uppercase; font-size: 12px; line-height: 1.4; max-width: 13em; clear: none; max-width: 15em; display: block; }
+	.listview .metablock p { margin-top: 0; }
+	.listview .metablock .commentcount {font-size: 13px; padding-left: 1em; background: url('images/comment.svg') center left no-repeat; background-size: 12px 12px;}
+	.listview .metablock ul {list-style: none; padding: 0; margin: 1em 0; font-size: 11px; }
+	.listview .metablock li {padding: 0; margin: 0; }
+	.listview .metablock li a {border: 1px solid #a6a6a6; color: #a6a6a6; display: block; float: left; padding: .125em .25em; clear: both; margin-bottom: .5em; border-radius: .25em; }
+	.listview .metablock li a:hover {border-color: #000; color: #000;}
+
 	.single { max-width: 44.5em; }
+	.single .metablock {float: left; font-family: "Interstate", sans-serif; text-transform: uppercase; font-size: 12px; line-height: 1.4; max-width: 13em; clear: none; max-width: 15em; display: block; }
+	.single .metablock p { margin-top: 0; }
+	.single .metablock .commentcount {font-size: 13px; padding-left: 1em; background: url('images/comment.svg') center left no-repeat; background-size: 12px 12px;}
+	.single .metablock ul {list-style: none; padding: 0; margin: 1em 0; font-size: 11px; }
+	.single .metablock li {padding: 0; margin: 0; }
+	.single .metablock li a {border: 1px solid #a6a6a6; color: #a6a6a6; display: block; float: left; padding: .125em .25em; clear: both; margin-bottom: .5em; border-radius: .25em; }
+	.single .metablock li a:hover {border-color: #000; color: #000;}
+
 	.titleblock {width: 34.5em; float: right; }
 	.content {width: 34.5em; float: right; margin-top: 1.5em;}
-
-	.listview .metablock, .single .metablock {float: left; font-family: "Interstate", sans-serif; text-transform: uppercase; font-size: 12px; line-height: 1.4; max-width: 13em; clear: none; max-width: 15em; display: block; }
-	.listview .metablock p, .single .metablock p { margin-top: 0; }
-	.listview .metablock .commentcount, .single .metablock .commentcount {font-size: 13px; padding-left: 1em; background: url('images/comment.svg') center left no-repeat; background-size: 12px 12px;}
-	.listview .metablock ul, .single .metablock ul {list-style: none; padding: 0; margin: 1em 0; font-size: 11px; }
-	.listview .metablock li, .single .metablock li {padding: 0; margin: 0; }
-	.listview .metablock li a, .single .metablock li a {border: 1px solid #a6a6a6; color: #a6a6a6; display: block; float: left; padding: .125em .25em; clear: both; margin-bottom: .5em; border-radius: .25em; }
-	.listview .metablock li a:hover, .single .metablock li a:hover {border-color: #000; color: #000;}
-
 
 	/* Weather */
 
@@ -372,13 +385,66 @@ ul.archive a {display: block; line-height: 1.5em;  }
 
 }
 
-/* Desktop */
-@media screen and (min-width: 1025px) {
+/* Legacy: No Media Queries (IE 8 and lower) */
 
-}
+	.legacy .js .weather {cursor: pointer;}
+	.legacy .js .navcontainer {display: inline; }
+	.legacy .js .menutoggle { display: none;}
+	.legacy .js .viewtoggle {display: block;}
 
+	.legacy .header .tagline span {display: inline;}
+	.legacy .thirdandmission { margin-right: 6px; }
 
-/* Legacy IE (8 and lower) */
+	.legacy .logo { display: block; position: relative; z-index: 3; }
+
+	.legacy .nav a { width: auto; margin-right: 6px; }
+	.legacy .search label { width: auto; line-height: 0; }
+	.legacy .search .imagelabel {display: inline-block;}
+	.legacy .search .textlabel {display: none;}
+	.legacy #s { width: 6em;}
+
+	.legacy .coverwrapper { width: 320px;  }
+	.legacy .widewrapper { width: 640px; }
+	.legacy .wrapper { width: 320px; }
+
+	.legacy .coveritem h3 { font-size: 51px; }
+
+	.legacy .item .meta {display: block;}
+	.legacy .item .meta + h3 { margin-top: 0;}
+
+	.legacy .single .metablock {float: left; font-family: "Interstate", sans-serif; text-transform: uppercase; font-size: 12px; line-height: 1.4; max-width: 13em; clear: none; max-width: 15em; display: block; }
+	.legacy .single .metablock p { margin-top: 0; }
+	.legacy .single .metablock .commentcount {font-size: 13px; padding-left: 1em; background: url('images/comment.svg') center left no-repeat; background-size: 12px 12px;}
+	.legacy .single .metablock ul {list-style: none; padding: 0; margin: 1em 0; font-size: 11px; }
+	.legacy .single .metablock li {padding: 0; margin: 0; }
+	.legacy .single .metablock li a {border: 1px solid #a6a6a6; color: #a6a6a6; display: block; float: left; padding: .125em .25em; clear: both; margin-bottom: .5em; border-radius: .25em; }
+	.legacy .single .metablock li a:hover {border-color: #000; color: #000;}
+
+	.legacy .description p { font-size: 16px; }
+
+	.legacy .pagetitle { margin-bottom: 4em; }
+	.legacy .pagetitle h2 {  font-size: 72px; }
+
+	.legacy .single { max-width: 44.5em; }
+	.legacy .single h3 {font-size: 42px; line-height: 1.2; }
+	.legacy .single .subtitle { font-size: 24px; line-height: 35px; margin: .5em 0 1em 0; }
+
+	.legacy .titleblock {width: 34.5em; float: right; }
+	.legacy .content {width: 34.5em; float: right; margin-top: 1.5em;}
+
+	.legacy .footer .social { margin-top: 0; position: static; }
+	.legacy .footer .social a {border: none; }
+
+	.legacy .fineprint a.credit {float: right; display: inline;}
+
+	.legacy .item .corner p { background: url('images/comment.png') center left no-repeat; }
+	.legacy .item .pink {background: url('images/corner-pink.gif') #fff; }
+	.legacy .item .black {background: url('images/corner-black.gif') #fff; }
+	.legacy .item .green {background: url('images/corner-green.gif') #fff; }
+	.legacy .item .yellow {background: url('images/corner-yellow.gif') #fff; }
+
+	.legacy .coveritem .bottomnotch { background: url('images/line-white.gif') #fff; }
+	.legacy .metablock .commentcount { background: url('images/comment.png') center left no-repeat;}
 
 
 /* Weather */

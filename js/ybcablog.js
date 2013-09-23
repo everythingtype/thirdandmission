@@ -1,5 +1,7 @@
 (function($) {
 
+	var isLegacy = $('html').hasClass('legacy');
+
 	function doWeatherOverlay() {
 
 		if ( $('.weather').hasClass('withoverlay') ) {
@@ -110,54 +112,58 @@
 
 	}
 
+
 	$(document).ready( function() {
+		if ( !isLegacy ) {
 
-		initialize();
-		theWeather();
+			initialize();
+			theWeather();
 
-		$('.weather').live('click', function() {
-			doWeatherOverlay();
-		});
+			$('.weather').live('click', function() {
+				doWeatherOverlay();
+			});
 
-		$('#weatherOverlay').live('click', function() {
-			removeWeatherOverlay();
-		});
+			$('#weatherOverlay').live('click', function() {
+				removeWeatherOverlay();
+			});
 
-		$('.masonry').packery({
-	        itemSelector: '.brick'
-	    });
+			$('.masonry').packery({
+		        itemSelector: '.brick'
+		    });
 
 
-		$('.menutoggle').live('click', function() {
-			$(this).hide();
-			$('.navcontainer').show();
-		});
+			$('.menutoggle').live('click', function() {
+				$(this).hide();
+				$('.navcontainer').show();
+			});
 
-		$('.search label').live('click', function() {
-			$(this).hide();
-			$('.searchinput').show();
-		});
+			$('.search label').live('click', function() {
+				$(this).hide();
+				$('.searchinput').show();
+			});
 
-		$('#viewgrid').live('click', function() {
-			doGridView();
-		});
+			$('#viewgrid').live('click', function() {
+				doGridView();
+			});
 
-		$('#viewlist').live('click', function() {
-			doListView();
-		});
+			$('#viewlist').live('click', function() {
+				doListView();
+			});
 
+		}
 	});
 
 	$(window).load( function() {
-		$('.masonry').packery({
-	        itemSelector: '.brick'
-	    });
+		if ( !isLegacy ) {
+
+			$('.masonry').packery({
+		        itemSelector: '.brick'
+		    });
+		}
 	});
 
 
-	// $(".myBox").click(function(){
-	//      window.location=$(this).find("a").attr("href"); 
-	//      return false;
-	// });
+
+
 
 })(jQuery);
