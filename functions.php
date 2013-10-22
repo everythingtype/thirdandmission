@@ -23,12 +23,6 @@ function queue_scripts() {
 	wp_register_script('cookiejs',$cookiejs);
 	wp_enqueue_script( 'cookiejs',array('jquery'));
 
-	// Forecast
-	// $forecastjs = get_template_directory_uri() . '/js/ti.forecast.io.js';
-	// wp_register_script('forecastjs',$forecastjs);
-	// wp_enqueue_script( 'forecastjs',array('jquery'));
-
-
 	// Theme
 	$themejs = get_template_directory_uri() . '/js/ybcablog.js';
 	wp_register_script('themejs',$themejs);
@@ -163,6 +157,13 @@ function ybca_corner_color() {
 		echo 'green';
 	endif;
 }
+
+
+// Remove brackets from excerpt
+function new_excerpt_more( $more ) {
+	return ' &hellip;';
+}
+add_filter( 'excerpt_more', 'new_excerpt_more' );
 
 
 // Category description

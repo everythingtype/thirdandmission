@@ -12,7 +12,7 @@
 		</div>
 	<?php else : ?>
 	<?php $comments_count = wp_count_comments( get_the_ID() ); ?>
-	<div class="item <?php if ( in_category_or_subcategory_of('events') ) echo 'eventitem'; ?>">
+	<div class="item <?php if ( in_category_or_subcategory_of('events') ) echo 'eventitem'; ?> shadow-<?php ybca_corner_color(); ?>">
 
 		<div class="iteminner">
 

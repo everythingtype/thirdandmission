@@ -9,23 +9,40 @@
 		} else {
 			
 			var icon = $.cookie('weathericon');
+			var overlayColor = "";
 
+			
 			// clear-day, clear-night, rain, snow, sleet, wind, fog, cloudy, partly-cloudy-day, or partly-cloudy-night
 
-			if ( icon === 'fog' ) {
-				var overlayColor = "fog";
-			} else if ( icon === 'clear-night' ||  icon === 'partly-cloudy-night' ) {
+			if ( icon == 'clear-night' ) {
 				var overlayColor = "clear-night";
+			} else if ( icon == 'clear-day' ) {
+				var overlayColor = "clear-day";
+			} else if ( icon == 'rain' ) {
+				var overlayColor = "rain";
+			} else if ( icon == 'snow' ) {
+				var overlayColor = "snow";
+			} else if ( icon == 'sleet' ) {
+				var overlayColor = "sleet";
+			} else if ( icon == 'wind' ) {
+				var overlayColor = "wind";
+			} else if ( icon == 'cloudy' || icon === 'fog' ) {
+				var overlayColor = "fog";
+			} else if ( 'partly-cloudy-day' ) {
+				var overlayColor = "partly-cloudy-day";
+			} else if ( icon == 'partly-cloudy-night' ) {
+				var overlayColor = "partly-cloudy-night";
 			} else {
 				var overlayColor = "clear-day";
 			}
 
 			$('body').append('<div id="weatherOverlay" class="' + overlayColor + '"><div id="weatherBanner"></div></div>');
-	//		$.cookie('seenweather', true, { path: '/' });
 
 			$('.weather').addClass('withoverlay');
 			$('.logo').addClass('withoverlay');	
-					
+
+			$.cookie('seenweather', true, { path: '/' });
+
 		}
 
 	}
@@ -82,33 +99,25 @@
 	function theWeather() {
 		
 		var weather = $.cookie('weather');
-//		var weather = false;
 		if ( weather ) {
 
-//			console.log("Have cookie");
 			$('.weather').html(weather + ' on 3rd and Mission');
 			
-		} else {
+			var seenweather = $.cookie('seenweather');
+			if ( !seenweather ) {
+				doWeatherOverlay();
+			}
 
-//			console.log("No cookie");
+		} else {
 
 			// Set weather cookie
 			$.getJSON('https://api.forecast.io/forecast/d80d090ce462f2c95ea1627fa7077ce6/' + 37.7857984 + ',' + -122.40242380000001 + "?callback=?", function(data1) {
 				$.cookie('weather', data1.currently.summary, { path: '/' });
 				$.cookie('weathericon', data1.currently.icon, { path: '/' });
 				theWeather();
-			});			
-
-
+			});
 
 		}
-
-		var seenweather = $.cookie('seenweather');
-
-		if ( !seenweather ) {
-			doWeatherOverlay()
-		}
-
 
 	}
 

@@ -31,8 +31,7 @@ get_header(); ?>
 				$categoryID = $category->term_id; ?>
 				<div class="pagetitle">
 				<h2><a href="<?php echo get_category_link( $categoryID ); ?>"><?php echo $category->name; ?></a></h2>
-				<?php 
-				wrapped_category_description($categoryID); ?>
+				<?php wrapped_category_description($categoryID); ?>
 				</div>
 			<?php endforeach; ?>
 		<?php endif; ?>
@@ -54,10 +53,12 @@ get_header(); ?>
 			<div class="content">
 
 				<?php if ( has_post_thumbnail() ) : ?>
-					<p class="thumbnail"><?php the_ybca_thumbnail(true); ?></p> 
+					<?php the_ybca_thumbnail(true); ?>
 				<?php endif; ?>
 
 				<?php the_content(); ?>
+
+				<?php comments_template(); ?>
 
 			</div>
 

@@ -10,7 +10,7 @@ get_header(); ?>
 		<ul class="archive">
 		<?php wp_get_archives(array( 
 			'type' => 'yearly',
-			'before' => '<li><span class="item"><span class="corner black"></span>',
+			'before' => '<li><span class="item"><span class="whitecorner"></span><span class="corner black"></span>',
 			'after' => '</span></li>' )); ?>
 		</ul>
 
